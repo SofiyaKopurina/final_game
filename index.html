@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		@font-face {
+			src:url(1999.ttf);
+			font-family: my-font;
+		}
+		body{
+			font-family: my-font;
+			color: black;
+		}
+		.menu {
+			height: 105px; 
+			width: 230px; 
+			position: absolute; 
+			left: 740px; 
+			top: 500px;
+			transition: 1s;
+			background-image: url(L2.jpeg);
+			background-size: 100% 100%;
+		}
+		.txt1 {
+			padding-left: 45px;
+			transition: 1s
+		}
+		.main {
+			background-image:url(fon.png); 
+			background-size: cover;
+			height: 850px;
+			width: 1740px;
+		}
+		.location1 {
+			width: 1740px;
+			height: 850px;
+			background-image: url(kor.jpg);
+			background-size: 100% 100%;
+			display: none;
+		}
+		.location2 {
+			width: 1740px;
+			height: 850px;
+			background-image:url(fizic.jpg); 
+			background-size: 100% 100%;
+			display: none;
+		}
+		.location3 {
+			width: 1740px;
+			height: 850px;
+			background :green;
+			display: none;
+		}
+		.location4 {
+			width: 1740px;
+			height: 850px;
+			background-image:url(sport.jpg); 
+			background-size: 100% 100%;
+			display: none;
+		}
+		.player {
+			height: 200px;
+			width: 60px;
+			background-image:url(student.png); 
+			background-size: 100% 100%;
+			position: absolute;
+			left: 740px;
+			top: 500px;
+			transition: 1s;
+		}
+		.loc2_player {
+			height: 420px;
+			width: 120px;
+			background-image:url(student.png); 
+			background-size: 100% 100%;
+			position: absolute;
+			left: 300px;
+			top: 350px;
+			transition: 1s;
+		}
+		.loc3_player {
+			height: 320px;
+			width: 120px;
+			background-image:url(student.png); 
+			background-size: 100% 100%;
+			position: absolute;
+			left: 440px; 
+			top: 350px;
+			transition: 1s;
+		}
+		.loc4_player {
+			height: 420px;
+			width: 120px;
+			background-image:url(student.png); 
+			background-size: 100% 100%;
+			position: absolute;
+			left: 740px;
+			top: 350px;
+			transition: 1s;
+		}
+		.door1 {
+			height: 150px;
+			width: 50px;
+			left: 500px;
+			top: 320px;
+			position: absolute;
+		}
+		.door2 {
+			height: 150px;
+			width: 50px;
+			left: 1170px;
+			top: 300px;
+			position: absolute;
+		}
+		.door3 {
+			height: 150px;
+			width: 50px;
+			left: 1270px;
+			top: 300px;
+			position: absolute;
+		}
+		.loc3_teacher {
+			height: 350px;
+			width: 150px;
+			background-image:url(teacher2.png); 
+			background-size: 100% 100%;
+			left: 1150px; 
+			position: absolute; 
+			top: 350px;
+			transition: 1s;
+		}
+		/*2 локация*/
+		.loc2_teacher {
+			background-image:url(teacher1.png); 
+			background-size: 100% 100%;
+			height: 450px;
+			width: 150px;
+			left: 1100px; 
+			position: absolute; 
+			top: 300px;
+		}
+		.loc2_talk {
+			position: absolute;
+			width: 300px;
+			margin-left: 56%;
+			display: none;
+		}
+		.loc2_board1 {
+			left: 550px;
+			top: 85px;
+			position: absolute;
+			width: 650px;
+			height: 320px;
+		}
+		.loc2_board2 {
+			left: 550px;
+			top: 85px;
+			position: absolute;
+			width: 650px;
+			height: 320px;
+			display: none;
+		}
+		.loc2_board3 {
+			left: 550px;
+			top: 85px;
+			position: absolute;
+			width: 650px;
+			height: 320px;
+			display: none;
+		}
+		.box {
+			width: 1740px;
+			height: 850px;
+			background-image:url(matan.jpg); 
+			background-size: 100% 100%;
+		}
+		.net {
+			height: 70px;
+			width: 150px;
+			background: lightgrey;
+			margin-left: 10px;
+			margin-top: 700px;
+			border: solid black;
+			transition: 1s;
+			display: none;
+		}
+		.da {
+			height: 70px;
+			width: 150px;
+			background: lightgrey;
+			margin-left: 10px;
+			margin-top: 700px;
+			border: solid black;
+			transition: 1s;
+			display: none;
+		}
+		.timediv {
+          	width: 500px;
+          	height: 100px;
+          	position: absolute;
+          }
+          .message {
+			height: 270px;
+			width: 270px;
+			position: absolute;
+			left: 75%;
+			top: 30%;
+			background-image: url(talk.png);
+			background-size: 100% 100%;
+			padding: 55px;
+		}
+		.div {
+          	width: 700px;
+          	height: 100px;
+          	background: orange;
+        }
+        .boll {
+              height: 50px;
+              width: 50px;
+              position: absolute;
+        }
+        .five {
+        	position: absolute;
+        	left: 30%;
+        	top: 5%;
+        	height: 700px;
+        	width: 700px;
+        	background-image: url(5.gif);
+			background-size: 100% 100%;
+			display: none;
+        }
+        .nefive {
+        	position: absolute;
+        	left: 30%;
+        	top: 30%;
+        	height: 300px;
+        	width: 700px;
+        	background:lightgray;
+			display: none;
+        }
+	</style>
+</head>
+<body>
+	<!-- школа -->
+	<div class="main">
+		<div class="bg-info" style="width: 600px; top: 10px; left: 25px; position: absolute;">
+				<h3 class="text-darck font-face">Для того чтобы выйграть тебе нужно получить 5 по всем предметам</h3>
+		</div>
+		<div class="bg-danger menu rounded-pill">
+			<div class="pt-4 txt1">
+				<h1 class="text-white font-face">Начать</h1>
+			</div>
+		</div>
+	</div>
+	<!-- коридор -->
+	<div class="location1">
+			<div class="player">				
+			</div>
+			<div class="door1">
+			</div>
+			<div class="door2">
+			</div>
+			<div class="door3">
+			</div>
+			<div class="five"></div>
+			<div class="nefive"><h1 class="font-face">Ты не смог получить 5, попробуй пройти игру занаво</h1></div>
+	</div>
+	<!-- физика -->
+	<div class="location2">
+		<h1>Баллы : <span class="ball">5</span></h1>
+		<div class="loc2_player"></div>	
+		<div class="loc2_teacher"></div>
+		<div class="message">
+			<p class="font-face">Вам нужно решить тест, за каждый не правильный ответ -1 балл.Всего 3 вопроса</p>
+		</div>
+		<div class="loc2_board1">
+			<img src="h2o.jpg" style="height: 200px; width: 650px">
+			<h3 class="font-face" style="">Свойства жиидких веществ</h3>
+			<button class="neto font-face" style="background: green; margin-top: 5px">сохраняет форму</button> 
+			<button class="to font-face" style="background: green; margin-top: 5px">сохраняет объем</button> 
+			<button class="neto font-face" style="background: green; margin-top: 5px">занимают весь объем</button> 
+		</div>
+		<div class="loc2_board2">
+			<img src="gas.jpg" style="height: 200px; width: 650px">
+			<h3 class="font-face" style="">Свойства газообразных веществ</h3>
+			<button class="neto2 font-face" style="background: green; margin-top: 5px">сохраняет форму</button> 
+			<button class="neto2 font-face" style="background: green; margin-top: 5px">сохраняет объем</button> 
+			<button class="to2 font-face" style="background: green; margin-top: 5px">занимают весь объем</button> 
+		</div>
+		<div class="loc2_board3">
+			<img src="rock.jpg" style="height: 200px; width: 650px">
+			<h3 class="font-face" style="">Свойства твердых веществ</h3>
+			<button class="to3 font-face" style="background: green; margin-top: 5px">сохраняет форму</button> 
+			<button class="neto3 font-face" style="background: green; margin-top: 5px">сохраняет объем</button> 
+			<button class="neto3 font-face" style="background: green; margin-top: 5px">занимают весь объем</button> 
+		</div>		
+	</div>
+	<!-- алгебра -->
+	<div class="location3">
+		<div class="box">
+			<div class="loc3_player">
+			</div>
+			<div class="loc3_teacher">
+			</div>
+			<div class="timediv">
+				<h1 class="font-face">Время: <span class="time">10</span></h1>
+			</div>
+			<div style="position: absolute; top: 330px; left: 850px; width: 150px; height: 150px">
+				<h5 class="font-face">125+(-125)=</h5>
+			</div>
+			<div style="display: flex;">
+				<div class="net">
+					<p class="font-face">Шпора1</p>
+					<p class="font-face">a + 0 = a</p>
+				</div>
+				<div class="da">
+					<p class="font-face">Шпора2</p>
+					<p class="font-face">a + (-a) = 0</p>
+				</div>
+				<div class="net">
+					<p class="font-face">Шпора3</p>
+					<p class="font-face">a - b = a + (-b)</p>
+				</div>
+				<div class="net">
+					<p class="font-face">Шпора4</p>
+					<p class="font-face">a * 0 = 0</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="location4">
+		<div class="loc4_player"></div>
+		<div class="div">
+			<h1 class="font-face">Количество мячей: <span class="count">0</span></h1>
+	    	<h1 class="font-face">Количество пойманных мячей: <span class="died">0</span></h1>
+		</div>					
+	</div>
+	<script type="text/javascript">
+		//
+		let main = document.querySelector(".main");
+		//
+		let menu = document.querySelector(".menu");
+		//
+		let txt1 = document.querySelector(".txt1");
+		//коридор
+		let location1 = document.querySelector(".location1");
+		//класс1
+		let location2 = document.querySelector(".location2");
+		//класс2
+		let location3 = document.querySelector(".location3");
+		//класс3
+		let location4 = document.querySelector(".location4");
+		//игрок
+		let player = document.querySelector(".player");
+		//игрок2
+		let player2 = document.querySelector(".loc2_player");
+		//игрок3
+		let player3 = document.querySelector(".loc3_player");
+		//игрок4
+		let player4 = document.querySelector(".loc4_player");
+		//дверь1
+		let door1 = document.querySelector(".door1");
+		//дверь2
+		let door2 = document.querySelector(".door2");
+		//дверь3
+		let door3 = document.querySelector(".door3");
+		//
+		let loc3_teacher = document.querySelector(".loc3_teacher");
+		let five = document.querySelector(".five");
+		let nefive = document.querySelector(".nefive");
+		menu.onclick = function(){
+			menu.style.height = "125px";
+			menu.style.width = "250px";
+			txt1.style.paddingLeft = "57px"
+			let changeLocation1 = function() {
+		   		//скрываю мейн, открываю локацию 1
+		    	main.style.display = "none";
+		    	location1.style.display = "block";	
+		    }
+		    setTimeout(changeLocation1, 2000)
+		}
+		door1.onclick = function(){
+			player.style.left = "560px";
+	    	player.style.top = "320px";
+	    	let changeLocation2 = function() {
+		   		//скрываю локацию 1, открываю локацию 2
+		    	location1.style.display = "none";
+		    	location2.style.display = "block";	
+		    }
+		    setTimeout(changeLocation2, 2000)
+		    let neto = document.querySelectorAll(".neto");
+		    let to = document.querySelector(".to");
+		    let loc2_board1 = document.querySelector(".loc2_board1");
+		    let neto2 = document.querySelectorAll(".neto2");
+		    let to2 = document.querySelector(".to2");
+		    let loc2_board2 = document.querySelector(".loc2_board2");
+		    let neto3 = document.querySelectorAll(".neto3");
+		    let to3 = document.querySelector(".to3");
+		    let loc2_board3 = document.querySelector(".loc2_board3");
+		    let ball = document.querySelector(".ball");
+		    count = 5;
+			ball.innerHTML = count;
+		    for (let i = 0; i < 2; i++) {
+				neto[i].onclick = function() {
+					alert("Не то");
+					count = count - 1;
+					ball.innerHTML = count;
+				}
+			}
+			to.onclick = function() {
+				alert("Правильно!!!");
+				loc2_board1.style.display = "none";
+				loc2_board2.style.display = "block";
+			}
+		    for (let i = 0; i < 2; i++) {
+				neto2[i].onclick = function() {
+					alert("Не то");
+					count = count - 1;
+					ball.innerHTML = count;
+				}
+			}
+			to2.onclick = function() {
+				alert("Правильно!!!");
+				loc2_board2.style.display = "none";
+				loc2_board3.style.display = "block";
+			}
+			for (let i = 0; i < 2; i++) {
+				neto3[i].onclick = function() {
+					alert("Не то");
+					count = count - 1;
+					ball.innerHTML = count;
+				}
+			}
+			to3.onclick = function() {
+				alert("Правильно!!!");
+				loc2_board2.style.display = "none";
+				loc2_board3.style.display = "block";
+				if (count == 5) {
+					alert("очень хорошо 5");
+					location2.style.display = "none";
+					location1.style.display = "block";
+				}
+				if (count == 4) {
+					alert("неплохо 4");
+					location2.style.display = "none";
+					location1.style.display = "block";
+				}
+				if (count == 3) {
+					alert("так себе 3");
+					location2.style.display = "none";
+					location1.style.display = "block";
+				}
+				if (count == 2) {
+					alert("очень плохо 2");
+					location2.style.display = "none";
+					location1.style.display = "block";
+				}
+			}
+		}
+		door2.onclick = function() {
+			player.style.left = "1070px";
+	    	player.style.top = "310px";
+	    	let net = document.querySelectorAll(".net");
+			//
+			let da1 = document.querySelector(".da");
+	    	let changeLocation3 = function() {
+		   		//скрываю мейн, открываю локацию 1
+		    	location1.style.display = "none";
+		    	location3.style.display = "block";	
+		    }
+		    setTimeout(changeLocation3, 2000)
+		    let pravilo = function(){
+		    	alert('Спишы крнтрольную за 10 секунд пока учитель не вернулся в класс');
+		    	loc3_teacher.style.left = "1500px";
+			    let teacher = function(){
+			    	loc3_teacher.style.display = "none";
+			    	for (let i = 0; i < 3; i++) {
+						net[i].style.display = "block";
+					}
+					da1.style.display = "block";
+			    }
+			    setTimeout(teacher, 2000);
+			    let timeTxt  = document.querySelector(".time");
+				let time = 10;
+				timeTxt.innerHTML = time;
+				let timer = function(){
+				    time = time - 1;
+				    timeTxt.innerHTML = time;
+				    if (time == 0) {
+						alert("время вышло, ты не успел списать крнтрольную 2");
+						clearInterval(stop);
+						location3.style.display = "none";
+						location1.style.display = "block";
+					}
+				}
+				let stop = setInterval(timer, 1000);
+			   	setTimeout(timeTxt, 2000);
+			   	da1.onclick = function(){
+			    	alert("Тебе удалось списать крнтрольную 5");
+			    	location3.style.display = "none";
+					location1.style.display = "block";
+					clearInterval(stop);
+			    }
+			    for (let i = 0; i < 3; i++) {
+					net[i].onclick = function(){
+						alert("не то, ищи другую шпору")
+					}
+				}
+		    }
+		    setTimeout(pravilo, 3000);
+		}
+		door3.onclick = function() {
+			player.style.left = "1170px";
+	    	player.style.top = "320px";
+	    	let changeLocation4 = function() {
+		   		//скрываю мейн, открываю локацию 1
+		    	location1.style.display = "none";
+		    	location4.style.display = "block";	
+		    }
+		    setTimeout(changeLocation4, 2000);
+		    let pravilogame = function(){
+		    	alert("поймай все мячи");
+		    	/* найти элементы */
+				let countTxt = document.querySelector(".count");
+        		let diedTxt = document.querySelector(".died");
+
+		    	let count = 0;
+		        countTxt.innerHTML = count;
+		        let died = 0;
+		        diedTxt.innerHTML = died;
+				/* рандом лефт */
+				let randomLeft = function(){ 
+		            let rand = Math.random() * 1400;
+		            let round = Math.round(rand);
+		            return round;
+		        }
+
+		        /* рандом лефт */
+		        let randomTop = function(){
+		            let rand = Math.random() * 700; //для высоты
+		            let round = Math.round(rand);
+		            return round;
+		        } 
+				let createPoint = function() {
+					/* cздание картинки */
+					let point = document.createElement('img');
+				    location4.appendChild(point);
+				    point.src = "boll.png" 
+				    point.classList.add("boll");
+				    count = count + 1;
+				    countTxt.innerHTML = count;
+				    /* лефт и топ */
+				    point.style.marginLeft = randomLeft() + "px";
+				    point.style.marginTop = randomTop() + "px"
+				    /* клик на картинку */
+				    point.onclick = function() {
+				    	point.style.display = "none";
+				    	died = died + 1;
+				    	diedTxt.innerHTML = died;
+				    }
+				}
+				let stopgame = setInterval(createPoint, 1000);
+				let hide = function(){
+					if (died < 5) {
+						location4.style.display = "none";
+						location1.style.display = "block";
+						alert("ты не успел поймать мячи, 2");
+						clearInterval(stopgame);
+						nefive.style.display = "block";
+					}
+					if (died >= 5) {
+						location4.style.display = "none";
+						location1.style.display = "block";
+						alert("ты успел поймать мячи, 5");
+						five.style.display = "block";
+					}
+				}
+				setTimeout(hide, 7000);	
+		    }
+		    setTimeout(pravilogame, 3000);
+		}	
+	</script>
+</body>
+</html>
